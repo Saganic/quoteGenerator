@@ -39,6 +39,7 @@
 import Debug from './Debug.vue';
 import Materials from './Materials.vue';
 import MaterialsSearchModal from './MaterialSearchModal.vue';
+import availableItems from '../../data/output.js';
 
 export default {
   name: 'Quote',
@@ -51,23 +52,24 @@ export default {
     return {
       debug: false,
       materialSearchModalShow: false,
-      availableItems: [
-        {
-          code: 0,
-          name: 'My Item',
-          price: 3.00,
-        },
-        {
-          code: 1,
-          name: 'My other item',
-          price: 4.50,
-        },
-        {
-          code: 2,
-          name: 'My third item',
-          price: 9.95,
-        },
-      ],
+      // availableItems: [
+      //   {
+      //     code: 0,
+      //     name: 'My Item',
+      //     price: 3.00,
+      //   },
+      //   {
+      //     code: 1,
+      //     name: 'My other item',
+      //     price: 4.50,
+      //   },
+      //   {
+      //     code: 2,
+      //     name: 'My third item',
+      //     price: 9.95,
+      //   },
+      // ],
+      availableItems,
       quote: {
         jobNumber: null,
         dueDate: '',
