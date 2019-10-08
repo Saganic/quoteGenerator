@@ -39,7 +39,7 @@
 import Debug from './Debug.vue';
 import Materials from './Materials.vue';
 import MaterialsSearchModal from './MaterialSearchModal.vue';
-import availableItems from '../../data/output.js';
+import availableItems from '../../data/output';
 
 export default {
   name: 'Quote',
