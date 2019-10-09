@@ -88,7 +88,7 @@ export default {
       this.$emit('addItemToQuote', item);
     },
     nextPage() {
-      if (this.pageSize <= this.filteredItems.length) this.currentPage++;
+      if (this.pageSize <= this.filteredItems.length && (this.currentPage <= (this.availableItems.length / this.pageSize) - 1)) this.currentPage++;
     },
     prevPage() {
       if (this.currentPage > 1) this.currentPage--;
