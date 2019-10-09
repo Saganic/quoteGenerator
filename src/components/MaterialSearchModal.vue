@@ -10,7 +10,13 @@
           v-model="searchQuery"
           placeholder="Search materials"
           class="search-box"
+          @keyup="resetPage"
         />
+      </section>
+      <br/>
+      <section>
+        <button @click="prevPage">Previous</button>
+        <button @click="nextPage">Next</button>
       </section>
       <br/>
       <section>
@@ -30,6 +36,7 @@
           </tr>
         </table>
       </section>
+
     </div>
   </div>
 </template>
@@ -52,15 +59,26 @@ export default {
           return item;
         }
         return undefined;
+      }).filter((row, index) => {
+        const start = (this.currentPage - 1) * this.pageSize;
+        const end = this.currentPage * this.pageSize;
+        if (index >= start && index < end) return true;
       });
     },
   },
   data() {
     return {
+      pageSize: 100,
+      currentPage: 1,
       searchQuery: '',
+
     };
   },
   methods: {
+    resetPage() {
+      console.log('Yo');
+      this.currentPage = 1;
+    },
     toggleSearchModal() {
       this.$emit('toggleSearchModal');
     },
@@ -69,6 +87,14 @@ export default {
     },
     addToQuote(item) {
       this.$emit('addItemToQuote', item);
+    },
+    nextPage() {
+      if (this.pageSize <= this.filteredItems.length) {
+        this.currentPage++;
+      }
+    },
+    prevPage() {
+      if (this.currentPage > 1) this.currentPage--;
     },
   },
 };
