@@ -76,7 +76,6 @@ export default {
   },
   methods: {
     resetPage() {
-      console.log('Yo');
       this.currentPage = 1;
     },
     toggleSearchModal() {
