@@ -1,4 +1,4 @@
-# add-item-basket
+# quoteGenerator
 
 ## Project setup
 ```
